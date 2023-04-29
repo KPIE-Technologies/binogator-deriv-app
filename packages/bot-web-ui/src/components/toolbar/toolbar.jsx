@@ -118,6 +118,7 @@ const Toolbar = ({ onMount, onUnmount, ...other_props }) => {
                             buttonOnClick={toggleLoadModal}
                             icon={<Icon icon='IcFolderOpenFilled' color='active' size={16} />}
                             button_text={localize('Load')}
+                            style={{ backgroundColor: '#2f4f4f', borderRadius: 20 }}
                         />
                         <ToolbarButton
                             button_id='db-toolbar__quick-strategy-button--mobile'
@@ -125,6 +126,7 @@ const Toolbar = ({ onMount, onUnmount, ...other_props }) => {
                             buttonOnClick={toggleStrategyModal}
                             icon={<Icon icon='IcPuzzle' color='active' size={16} />}
                             button_text={localize('Quick')}
+                            style={{ backgroundColor: '#2f4f4f', borderRadius: 20 }}
                         />
                         {/* <ToolbarButton
                             button_id='db-toolbar__save-button--mobile'

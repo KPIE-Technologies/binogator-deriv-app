@@ -84,3 +84,10 @@
     margin: 8px;
     background-color: var(--border-normal);
 }
+
+@media (max-width: 576px) {
+    .toolbar__btn--icon {
+        background-color: #2f4f4f;
+        border-radius: 30px;
+    }
+}

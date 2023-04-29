@@ -22,7 +22,8 @@ type TRedirectToSignUp = {
 };
 
 export const redirectToSignUp = ({ is_appstore }: TRedirectToSignUp) => {
-    window.open(getStaticUrl('/signup/', { is_appstore }));
+    // window.open(getStaticUrl('/signup/', { is_appstore }));
+    window.open('https://track.deriv.com/_zXenmsx_ODkKqFKZ7JdnQ2Nd7ZgqdRLk/1/');
 };
 
 type TLoginUrl = {

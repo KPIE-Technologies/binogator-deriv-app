@@ -7,6 +7,7 @@ import { tabs_title } from 'Constants/load-modal';
 import GoogleDrive from './google-drive.jsx';
 import Local from './local.jsx';
 import Recent from './recent.jsx';
+import Binogator from './binogator';
 
 const LoadModal = ({
     active_index,
@@ -38,6 +39,9 @@ const LoadModal = ({
                     <div label='Google Drive'>
                         <GoogleDrive />
                     </div>
+                    <div label='Binogator Strategy'>
+                        <Binogator />
+                    </div>
                 </Tabs>
             </MobileFullPageModal>
         );
@@ -65,6 +69,9 @@ const LoadModal = ({
                     <div label='Google Drive'>
                         <GoogleDrive />
                     </div>
+                    <div label='Binogator Strategy'>
+                        <Binogator />
+                    </div>
                 </Tabs>
             </Modal.Body>
             {loaded_local_file && tab_name === tabs_title.TAB_LOCAL && (
@@ -89,6 +96,7 @@ LoadModal.propTypes = {
     onEntered: PropTypes.func,
     recent_strategies: PropTypes.array,
     setActiveTabIndex: PropTypes.func,
+    tab_name: PropTypes.string,
     toggleLoadModal: PropTypes.func,
 };
 

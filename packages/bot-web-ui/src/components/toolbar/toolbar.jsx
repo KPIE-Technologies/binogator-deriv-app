@@ -3,7 +3,7 @@ import { Localize, localize } from '@deriv/translations';
 import PropTypes from 'prop-types';
 import React from 'react';
 import LoadModal from 'Components/load-modal';
-import SaveModal from 'Components/save-modal';
+// import SaveModal from 'Components/save-modal';
 import TradeAnimation from 'Components/trade-animation';
 import { tabs_title } from 'Constants/bot-contents';
 import { popover_zindex } from 'Constants/z-indexes';
@@ -37,7 +37,7 @@ const WorkspaceGroup = ({
     onUndoClick,
     onZoomInOutClick,
     toggleLoadModal,
-    toggleSaveModal,
+    // toggleSaveModal,
 }) => (
     <div className='toolbar__group toolbar__group-btn'>
         <IconButton
@@ -52,12 +52,12 @@ const WorkspaceGroup = ({
             icon_id='db-toolbar__import-button'
             iconOnClick={toggleLoadModal}
         />
-        <IconButton
+        {/* <IconButton
             popover_message={localize('Save')}
             icon='IcSave'
             icon_id='db-toolbar__save-button'
             iconOnClick={toggleSaveModal}
-        />
+        /> */}
         <div className='vertical-divider' />
         <IconButton
             popover_message={localize('Undo')}
@@ -104,7 +104,7 @@ const Toolbar = ({ onMount, onUnmount, ...other_props }) => {
         closeResetDialog,
         toggleStrategyModal,
         toggleLoadModal,
-        toggleSaveModal,
+        // toggleSaveModal,
     } = other_props;
 
     return (
@@ -126,13 +126,13 @@ const Toolbar = ({ onMount, onUnmount, ...other_props }) => {
                             icon={<Icon icon='IcPuzzle' color='active' size={16} />}
                             button_text={localize('Quick')}
                         />
-                        <ToolbarButton
+                        {/* <ToolbarButton
                             button_id='db-toolbar__save-button--mobile'
                             button_classname='toolbar__btn--icon'
                             buttonOnClick={toggleSaveModal}
                             icon={<Icon icon='IcSaveFilled' color='active' size={16} />}
                             button_text={localize('Save')}
-                        />
+                        /> */}
                     </div>
                 </div>
             ) : (
@@ -159,7 +159,7 @@ const Toolbar = ({ onMount, onUnmount, ...other_props }) => {
                     </div>
                 </ThemedScrollbars>
             )}
-            <SaveModal />
+            {/* <SaveModal /> */}
             <LoadModal />
             <Dialog
                 title={localize('Are you sure?')}
@@ -206,10 +206,10 @@ Toolbar.propTypes = {
     onUndoClick: PropTypes.func,
     onUnmount: PropTypes.func,
     onZoomInOutClick: PropTypes.func,
-    toggleSaveLoadModal: PropTypes.func,
+    // toggleSaveLoadModal: PropTypes.func,
 };
 
-export default connect(({ main_content, run_panel, save_modal, load_modal, toolbar, ui, quick_strategy }) => ({
+export default connect(({ main_content, run_panel, load_modal, toolbar, ui, quick_strategy }) => ({
     active_tab: main_content.active_tab,
     file_name: toolbar.file_name,
     has_redo_stack: toolbar.has_redo_stack,
@@ -232,6 +232,6 @@ export default connect(({ main_content, run_panel, save_modal, load_modal, toolb
     onUnmount: toolbar.onUnmount,
     onZoomInOutClick: toolbar.onZoomInOutClick,
     toggleLoadModal: load_modal.toggleLoadModal,
-    toggleSaveModal: save_modal.toggleSaveModal,
+    // toggleSaveModal: save_modal.toggleSaveModal,
     toggleStrategyModal: quick_strategy.toggleStrategyModal,
 }))(Toolbar);

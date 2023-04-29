@@ -15,7 +15,7 @@ export const livechat_client_id = '66aa088aad5a414484c1fd1fa8a5ace7';
 
 export const domain_app_ids = {
     // these domains as supported "production domains"
-    'deriv.app': 16929, // TODO: [app-link-refactor] - Remove backwards compatibility for `deriv.app`
+    'deriv.app': 32372, //16929, // TODO: [app-link-refactor] - Remove backwards compatibility for `deriv.app`
     'app.deriv.com': 16929,
     'staging-app.deriv.com': 16303,
     'app.deriv.me': 1411,
@@ -23,6 +23,7 @@ export const domain_app_ids = {
     'app.deriv.be': 30767,
     'staging-app.deriv.be': 31186,
     'binary.com': 1,
+    'trade.binogator.live': 32372,
 };
 
 export const platform_app_ids = {
@@ -45,8 +46,8 @@ export const isTestLink = () => {
 export const isLocal = () => /localhost\.binary\.sx/i.test(window.location.hostname);
 
 export const getAppId = () => {
-    let app_id = null;
-    const user_app_id = ''; // you can insert Application ID of your registered application here
+    let app_id: any = 32372;
+    const user_app_id = '32372'; // you can insert Application ID of your registered application here
     const config_app_id = window.localStorage.getItem('config.app_id');
     const current_domain = getCurrentProductionDomain() || '';
     const platform = window.localStorage.getItem('config.platform');

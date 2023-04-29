@@ -52,6 +52,8 @@ export default class LoadModalStore {
         );
     }
 
+    // here
+    bin_workspace;
     recent_workspace;
     local_workspace;
     drop_zone;
@@ -64,9 +66,30 @@ export default class LoadModalStore {
     recent_strategies = [];
     selected_strategy_id = undefined;
 
+    // added this function from the old
+    fetchFileContent = arg => {
+        const load_options = { block_string: arg, drop_event: null, from: save_types.LOCAL };
+        const ref = document.getElementById('load-strategy__blockly-container');
+        ref.querySelector('div.injectionDiv')?.remove();
+
+        this.bin_workspace = Blockly.inject(ref, {
+            media: `${__webpack_public_path__}media/`, // eslint-disable-line
+            zoom: {
+                wheel: false,
+                startScale: config.workspaces.previewWorkspaceStartScale,
+            },
+            readOnly: true,
+            scrollbars: true,
+        });
+        load_options.workspace = this.bin_workspace;
+
+        load(load_options);
+    };
+
     get preview_workspace() {
         if (this.tab_name === tabs_title.TAB_LOCAL) return this.local_workspace;
         if (this.tab_name === tabs_title.TAB_RECENT) return this.recent_workspace;
+        if (this.tab_name === tabs_title.TAB_BIN) return this.bin_workspace;
         return null;
     }
 
@@ -86,6 +109,7 @@ export default class LoadModalStore {
         if (this.active_index === 0) return tabs_title.TAB_RECENT;
         if (this.active_index === 1) return tabs_title.TAB_LOCAL;
         if (this.active_index === 2) return tabs_title.TAB_GOOGLE;
+        if (this.active_index === 3) return tabs_title.TAB_BIN;
         return '';
     }
 
@@ -334,5 +358,15 @@ export default class LoadModalStore {
             load(load_options);
         });
         reader.readAsText(file);
+    };
+
+    loadFileToWorkSpace = obj => {
+        load({
+            block_string: obj.xml,
+            strategy_id: this.selected_strategy.id,
+            file_name: obj.name,
+            workspace: Blockly.derivWorkspace,
+        });
+        this.toggleLoadModal();
     };
 }

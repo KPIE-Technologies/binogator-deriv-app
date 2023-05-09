@@ -51,6 +51,7 @@ module.exports = {
         'global-require': 'warn',
 
         // import rules
+
         'import/no-extraneous-dependencies': [
             'warn',
             {

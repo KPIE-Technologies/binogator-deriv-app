@@ -3,6 +3,7 @@ const AppIds = Object.freeze({
     'staging.deriv.app': '19112',
     'app.deriv.com': '19111',
     'staging-app.deriv.com': '19112',
+    // 'trade.binogator.live': '32372',
 });
 
 export default AppIds;

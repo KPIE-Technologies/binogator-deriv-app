@@ -21,6 +21,6 @@ packages/components/src/components/icon/icons-manifest.js
 packages/p2p/lib/
 packages/appstore/lib/
 packages/appstore/.out
-.env
+
 nx-cloud.env
 
